@@ -1,13 +1,21 @@
 
 import './App.css'
-
+import { DataTable } from './components/UI/DataTable';
+import { NavBar } from './components/UI/NavBar'
+import { Statics } from './components/UI/Statics';
+import { Provider } from 'react-redux';
+import { store } from './components/store/storeCofig';
 function App() {
 
   return (
-    <div className='flex items-center justify-center'>
-    <p className='m-0 text-5xl font-black border-2 p-5 rounded-3xl'>hello</p>
-    </div>
-  )
+    <Provider store={store}>
+      <div className="m-0 bg-primary">
+        <NavBar />
+        <Statics />
+        <DataTable />
+      </div>
+    </Provider>
+  );
 }
 
 export default App
