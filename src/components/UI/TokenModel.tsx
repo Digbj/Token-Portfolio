@@ -168,3 +168,4 @@ export const AddTokenModal: React.FC<{
     </div>
   );
 };
+
