@@ -55,7 +55,7 @@ export const NavBar: React.FC = () => {
                     return (
                       <button
                         onClick={openConnectModal}
-                        className="flex items-center h-8 px-4 rounded-full bg-bottonColor text-sm font-medium text-fontSecondary hover:opacity-80 transition-opacity"
+                        className="flex items-center h-8 px-4 rounded-full bg-bottonColor text-sm font-medium text-fontSecondary hover:opacity-80 transition-opacity hover:cursor-pointer"
                       >
                         <Wallet className="w-4 h-4 mr-2" />
                         <span>Connect Wallet</span>
@@ -78,7 +78,7 @@ export const NavBar: React.FC = () => {
                   return (
                     <button
                       onClick={openAccountModal}
-                      className="flex items-center h-8 px-4 rounded-full bg-bottonColor text-sm font-medium text-fontSecondary hover:opacity-80 transition-opacity"
+                      className="flex items-center h-8 px-4 rounded-full bg-bottonColor text-sm font-medium text-fontSecondary hover:opacity-80 transition-opacity "
                     >
                       <Wallet className="w-4 h-4 mr-2" />
                       <span>

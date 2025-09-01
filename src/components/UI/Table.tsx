@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MoreVertical, Trash2 } from "lucide-react";
+import { MoreVertical, Pen, Trash2 } from "lucide-react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/storeCofig";
 import { TOWS_PER_PAGE } from "../types/Constants";
@@ -119,20 +119,20 @@ export const Table: React.FC = () => {
                       }
                       className="p-1 text-gray-400 hover:text-white"
                     >
-                      <MoreVertical className="w-5 h-5" />
+                      <MoreVertical className="w-5 h-5 hover:cursor-pointer" />
                     </button>
 
                     {openMenuId === row.id && (
                       <div className="absolute right-0 mt-2 w-40 bg-neutral-900 border border-neutral-700 rounded shadow-lg z-10">
                         <button
                           onClick={() => handleEdit(row)}
-                          className="w-full text-left px-3 py-2 text-sm hover:bg-neutral-800"
+                          className="w-full flex flex-row items-center gap-3 text-left px-3 py-2 text-sm hover:bg-neutral-800 hover:cursor-pointer"
                         >
-                          ✏️ Edit Holdings
+                        <Pen size={18}/> Edit Holdings
                         </button>
                         <button
                           onClick={() => handleRemove(row.id)}
-                          className="w-full flex flex-row gap-2 items-center text-left px-3 py-2 text-sm text-red-500 hover:bg-red-600/20"
+                          className="w-full flex flex-row gap-2 items-center text-left px-3 py-2 text-sm text-red-500 hover:bg-red-600/20 hover:cursor-pointer"
                         >
                           <Trash2 /> Remove
                         </button>
