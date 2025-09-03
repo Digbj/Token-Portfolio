@@ -7,7 +7,6 @@ interface TokenState {
   totalValue: number;
 }
 
-// 🔹 Helper: calculate total value
 const calculateTotalValue = (tokens: Coin[]) => {
   return tokens.reduce((sum, token) => {
     const value = parseFloat(token.Value || "0");
@@ -15,7 +14,6 @@ const calculateTotalValue = (tokens: Coin[]) => {
   }, 0);
 };
 
-// 🔹 Load state from localStorage
 const loadState = (): TokenState => {
   try {
     const saved = localStorage.getItem("tokens");
@@ -32,7 +30,7 @@ const loadState = (): TokenState => {
   return { tokens: [], totalValue: 0 };
 };
 
-// 🔹 Save state to localStorage
+
 const saveState = (tokens: Coin[]) => {
   try {
     localStorage.setItem("tokens", JSON.stringify(tokens));
@@ -55,7 +53,7 @@ const tokenSlice = createSlice({
       state.tokens.push(...newTokens);
 
       state.totalValue = calculateTotalValue(state.tokens);
-      saveState(state.tokens); // 🔥 persist
+      saveState(state.tokens); 
     },
     removeCoin: (state, action: PayloadAction<string>) => {
       state.tokens = state.tokens.filter(
@@ -63,7 +61,7 @@ const tokenSlice = createSlice({
       );
 
       state.totalValue = calculateTotalValue(state.tokens);
-      saveState(state.tokens); // 🔥 persist
+      saveState(state.tokens); 
     },
     updateHoldings: (
       state,
@@ -79,7 +77,7 @@ const tokenSlice = createSlice({
       }
 
       state.totalValue = calculateTotalValue(state.tokens);
-      saveState(state.tokens); // 🔥 persist
+      saveState(state.tokens); 
     },
     clearCoins: (state) => {
       state.tokens = [];

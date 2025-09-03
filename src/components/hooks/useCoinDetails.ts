@@ -1,66 +1,3 @@
-// import { useEffect, useState, useCallback } from "react";
-// import axios, { AxiosError } from "axios";
-// import type { CancelTokenSource } from "axios";
-
-// interface ApiResponse<T> {
-//   data: T | null;
-//   loading: boolean;
-//   error: string | null;
-//   refetch: () => void;
-// }
-
-// const BASE_URL = import.meta.env.VITE_COINGECKO_BASE_URL;
-// const API_KEY = import.meta.env.VITE_COINGECKO_API_KEY;
-
-// export function useCoinDetails<T>(
-//   endpoint: string,
-//   options: {
-//     page?: number;
-//     per_page?: number;
-//     //extra params
-//     [key: string]: any;
-//   } = {}
-// ): ApiResponse<T> {
-//   const [data, setData] = useState<T | null>(null);
-//   const [loading, setLoading] = useState<boolean>(true);
-//   const [error, setError] = useState<string | null>(null);
-
-//   const fetchData = useCallback(async () => {
-//     setLoading(true);
-//     setError(null);
-
-//     const source: CancelTokenSource = axios.CancelToken.source();
-//     try {
-//       const res = await axios.get<T>(`${BASE_URL}${endpoint}`, {
-//         params: options,
-//         headers: {
-//           accept: "application/json",
-//           ...(API_KEY ? { "x-cg-pro-api-key": API_KEY } : {}),
-//         },
-//         cancelToken: source.token,
-//       });
-//       setData(res.data);
-//     } catch (err) {
-//       if (axios.isCancel(err)) return;
-//       const axiosError = err as AxiosError;
-//       setError((axiosError.response?.data as string) || axiosError.message);
-//     } finally {
-//       setLoading(false);
-//     }
-
-//     return () => source.cancel("Request canceled");
-//   }, [endpoint, JSON.stringify(options)]); // stringifying here is fine since useCallback won't recreate on every render
-
-//   useEffect(() => {
-//     fetchData();
-//   }, [fetchData]);
-
-//   return { data, loading, error, refetch: fetchData };
-// }
-
-
-
-
 import { useEffect, useState } from "react";
 import axios, { AxiosError } from "axios";
 import type { AxiosRequestConfig } from "axios";
@@ -73,8 +10,8 @@ interface UseApiReturn<T> {
 }
 
 interface UseApiOptions extends Omit<AxiosRequestConfig, "headers"> {
-  enabled?: boolean; // Allow disabling auto-fetch
-  headers?: Record<string, string>; // Additional headers to merge with defaults
+  enabled?: boolean; 
+  headers?: Record<string, string>;
 }
 
 // Base configuration
